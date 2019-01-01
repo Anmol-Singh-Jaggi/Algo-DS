@@ -29,13 +29,9 @@ size_t LowerBound( const vector<T>& arr, const size_t& begin, const size_t& end,
 		{
 			low = mid + 1;
 		}
-		else if ( val < arr[mid] )
-		{
-			high = mid;
-		}
 		else
 		{
-			return mid;
+			high = mid - 1;
 		}
 	}
 
@@ -44,6 +40,6 @@ size_t LowerBound( const vector<T>& arr, const size_t& begin, const size_t& end,
 
 int main()
 {
-	vector<int> arr = {0, 1, 2, 3, 4, 6, 7, 8, 9};
-	print( LowerBound( arr, 0, arr.size(), 5 ) );
+	vector<int> arr = {0, 1, 2, 3, 3, 3, 4, 6, 7, 8, 9};
+	print( LowerBound( arr, 0, arr.size(), 3 ) );
 }

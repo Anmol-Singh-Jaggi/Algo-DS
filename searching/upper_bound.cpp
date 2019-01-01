@@ -25,21 +25,21 @@ size_t UpperBound( const vector<T>& arr, const size_t& begin, const size_t& end,
 	while ( low < high )
 	{
 		const size_t mid = low + ( high - low ) / 2;
-		if ( val >= arr[mid] )
+		if ( arr[mid] > val )
 		{
-			low = mid + 1;
+			high = mid - 1;
 		}
 		else
 		{
-			high = mid;
+			low = mid + 1;
 		}
 	}
 
-	return low; // not found
+	return low;
 }
 
 int main()
 {
-	vector<int> arr = {0, 1, 2, 3, 4, 6, 7, 8, 9};
+	vector<int> arr = {0, 1, 2, 3, 4, 4, 4, 6, 7, 8, 9};
 	print( UpperBound( arr, 0, arr.size(), 4 ) );
 }
